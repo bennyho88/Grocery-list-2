@@ -205,16 +205,38 @@ function displayStorage() {
 */
 
 ///
+
  function editStorage(item) {
 
 
     let groceryItems = JSON.parse(localStorage.getItem('groceryList'));
 
+    /*
+    let items = groceryItems.filter( item => {
+
+        if (item !== text) {
+
+            
+            return item;
+
+        }
+    })
+
+    localStorage.removeItem('groceryList');
+    localStorage.setItem('groceryList', JSON.stringify(items));
+    */
+    
     // console.log(groceryItems);
+   
+    let index = groceryItems.indexOf(item);
+    
+    // remove 1 item in array with index
+    groceryItems.splice(index, 1);
+    console.log(groceryItems);
 
-    let index = groceryItems.indexOF(item);
-    console.log(index);
+    localStorage.removeItem('groceryList');
+    localStorage.setItem('groceryList', JSON.stringify(groceryItems));
+
+    
+
  }
-
-
- 
